@@ -4,7 +4,7 @@ import "./App.css";
 function App() {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
-
+        // CALCULATE WINNER
   const handleClick = (i) => {
     const newBoard = [...board];
     if (calculateWinner(newBoard) || newBoard[i]) {
@@ -22,7 +22,7 @@ function App() {
       </button>
     );
   };
-
+// SHOW THE WINNER
   const winner = calculateWinner(board);
   let status;
   if (winner) {
@@ -32,7 +32,7 @@ function App() {
   } else {
     status = "Next player: " + (xIsNext ? "X" : "O");
   }
-
+          // GAME RESET
    const resetGame = () => {
      setBoard(Array(9).fill(null));
      setXIsNext(true);
@@ -63,7 +63,7 @@ function App() {
     </div>
   );
 }
-
+// DETERMINE THE WINNER 
 function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],
